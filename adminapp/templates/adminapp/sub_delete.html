@@ -1,0 +1,23 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="category_delete">
+        {% if object.is_active %}
+            Уверены, что хотите удалить подписчиков?
+        {% else %}
+            Уверены, что хотите восстановить подписчиков?
+        {% endif %}
+        <form action="{% url 'admin:sub_delete' %}" method="post">
+            {% csrf_token %}
+            {% if object.is_active %}
+            <input class="btn btn-danger" type="submit" value="удалить">
+            {% else %}
+             <input class="btn btn-primary" type="submit" value="восстановить">
+            {% endif %}
+        </form>
+        <button class="btn btn-success">
+            <a href="{% url 'admin:subscribers' %}">отмена</a>
+        </button>
+    </div>
+{% endblock %}

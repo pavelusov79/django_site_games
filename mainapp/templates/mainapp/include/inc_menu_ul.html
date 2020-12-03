@@ -1,0 +1,35 @@
+<ul class="menu_ul">
+	<li><a class="selected" href="{% url 'main' %}">Home</a></li>
+	<li><a href="{% url 'about' %}">About</a></li>
+	<li><a href="{% url 'services' %}">Services</a></li>
+	<li><a href="{% url 'page' 1 %}">Gallery</a></li>
+	<li><a href="{% url 'news' 1 %}">News</a></li>
+	<li><a href="{% url 'team' %}">Team</a></li>
+	<li><a href="{% url 'contacts' %}">Contact Us</a></li>
+	<!-- {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+    {% endif %} -->
+	<li>
+        {% if user.is_authenticated %}
+		<div class="dropdown">
+			<a class="dropdown-toggle" href="" data-toggle="dropdown">
+				{{ user.first_name|default:'Пользователь' }}
+				<span class = "caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="{% url 'auth:edit' %}">Профиль</a>
+				</li>
+				<li>
+					<a href="{% url 'ordersapp:orders_list' %}">Мои заказы</a>
+				</li>
+			</ul>
+		</div>
+        {% endif %}
+	</li>
+	<li>{% if user.is_superuser %}<a href="{% url 'admin:users' %}">Админка</a>{% endif %}</li>
+</ul>

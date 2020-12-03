@@ -1,0 +1,58 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block title %}
+<title>News#{{title}}</title>
+{% endblock %}
+{% block header %}
+<div class="header-cont"></div>
+{% endblock %}
+    {% block menu %}
+    <div class="menu">
+        {% include 'mainapp/include/inc_menu_gray.html' %}
+        <hr class="gray">
+        <div class="pull"></div>
+    </div>
+    {% endblock %}
+	{% block content %}
+    <div class="container mt-5">
+		<nav class="mx-5 mb-5" aria-label="breadcrumb">
+		  	<ol class="breadcrumb">
+		    	<li class="breadcrumb-item"><a href="{% url 'news' 1%}">News</a></li>
+		    	<li class="breadcrumb-item active" aria-current="page">News#{{title}}</li>
+		  	</ol>
+		</nav>
+		<div class="row justify-content-center">
+			<div class="col-6 col-sm-4 col-lg-3">
+				<div id="carousel2" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel2" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel2" data-slide-to="1"></li>
+                        <li data-target="#carousel2" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner mb-4">
+                        <div class="carousel-item active">
+                            <img class="img-fluid d-block w-100" src="/media/{{one_news.img_1}}"
+                                 alt="image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="img-fluid d-block w-100" src="/media/{{one_news.img_2}}"
+                                 alt="image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="img-fluid d-block w-100" src="/media/{{one_news.img_3}}"
+                                 alt="img">
+                        </div>
+                    </div>
+  				</div>
+			</div>
+			<div class="col-8 col-sm-6 col-lg-5 mb-4">
+				<h4 style="color:red;">{{one_news.title}}</h4>
+				<p><span class="date_p">{{one_news.published|date:"d"}}</span><span
+                        class="text_date">{{one_news.published|date:"F Y"}}</span></p>
+				<p class="card-text">{{one_news.description}}</p>
+			</div>
+		</div>
+	</div>
+    {% endblock %}
+    {% block contuct_us %}{% endblock %}
+    {% block route %}{% endblock %}

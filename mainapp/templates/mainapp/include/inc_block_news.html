@@ -1,0 +1,15 @@
+{% for item in news %}
+<div class="col-8 col-sm-4 col-lg-3 mb-4">
+    <div class="card card-news" style="background: #f4f8fa;">
+        <div class="card-body">
+            <p>
+                <span class="date_p">{{item.published|date:"d"}}</span>
+                <span class="text_date">{{item.published|date:"F Y"}}</span>
+            </p>
+            <h4>{{item.title|title}}</h4>
+            <p class="card-text">{{item.short_desc}}</p>
+            <a class="small" href="{% url 'news_detail' item.pk%}">Read more...</a>
+        </div>
+    </div>
+</div>
+{% endfor %}

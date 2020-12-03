@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{ title|title }}</title>
+	{% block links %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css'%}">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	{% endblock %}
+	{% block js %}
+	{% endblock %}
+</head>
+<body>
+	{% block header %}
+
+	{% endblock %}
+		{% block top_tab %}
+		<div class="top_tab">
+			<div class="logo">
+				<a href="{% url 'main' %}">
+					<p class="logo_first">Historical</p>
+					<p class="logo_second">GAMES</p>
+				</a>
+			</div>
+			<div class="tel">
+				<a href="#"><img src="{% static 'img/tel.png' %}" alt="tel"></a>
+				<span class="text_tel">+123 456 7890</span>
+				<a href="#"><img src="{% static 'img/email.png' %}" alt="email"></a>
+				<span class="text_email">info@example.com</span>
+			</div>
+			<div class="search">
+				<input type="text" placeholder="Search">
+				<div><a href="#"><img src="{% static 'img/search.png' %}" alt="search"></a></div>
+			</div>
+			{% if user.is_authenticated %}
+			<a class= "login_icon" href="{% url 'auth:edit' %}" title= " {{ user.first_name|default:'Пользователь' }} "></a>
+			{% else %}
+			<a class= "login_icon" href="{% url 'auth:login' %}" title= "Вход/регистрация"></a>
+			{% endif %}
+			<a class= "basket" href="{% url 'basket:view' %}" title="
+				{% if basket %}
+					В козине {{ basket.0.total_quantity }} товаров на сумму ${{ basket.0.total_cost }}
+				{% endif %}">
+			</a>
+			<span>
+				{% if basket %}
+					${{ basket.0.total_cost }} ({{ basket.0.total_quantity }} шт)
+				{% endif %}
+			</span>
+		</div>
+		{% endblock %}
+
+		{% block menu %}
+
+		{% endblock %}
+
+    {% block content %}
+
+	{% endblock %}
+	<div class="arrow">
+		<img src="{% static 'img/arrow_top.png' %}" alt="arrow_top">
+	</div>
+
+	{% block footer %}
+	<div class="footer">
+		<p>&copy;{% now "Y" %} Историческе Игры. Все права защищены</p>
+	</div>
+	{% endblock %}
+	{% block jquery %}
+	<script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+	<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'jquery.formset.js' %}"></script>
+	<script src="{% static 'orders_script.js' %}"></script>
+	{% endblock %}
+</body>
+</html>

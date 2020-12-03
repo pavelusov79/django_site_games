@@ -1,0 +1,36 @@
+<ul class="gray">
+	<li><a href="{% url 'main' %}">Home</a></li>
+	<li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}gray-selected{% endif %}">About</a></li>
+	<li><a href="{% url 'services' %}"
+		   class="{% if request.resolver_match.url_name == 'services' %}gray-selected{% endif %}">Services</a></li>
+	<li><a href="{% url 'page' 1 %}" class="{% if request.resolver_match.url_name == 'page' %}gray-selected{% endif %}">Gallery</a></li>
+	<li><a href="{% url 'news' 1 %}" class="{% if request.resolver_match.url_name == 'news' %}gray-selected{% endif %}">News</a></li>
+	<li><a href="{% url 'team' %}" class="{% if request.resolver_match.url_name == 'team' %}gray-selected{% endif %}">Team</a></li>
+	<li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == 'contacts' %}gray-selected{% endif %}">Contact Us</a></li>
+	<!-- {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+    {% endif %}-->
+    <li>
+        {% if user.is_authenticated %}
+		<div class="dropdown">
+			<a class="dropdown-toggle" href="" data-toggle="dropdown">
+				{{ user.first_name|default:'Пользователь' }}
+				<span class = "caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="{% url 'auth:edit' %}">Профиль</a>
+				</li>
+				<li>
+					<a href="{% url 'ordersapp:orders_list' %}">Мои заказы</a>
+				</li>
+			</ul>
+		</div>
+        {% endif %}
+    </li>
+	<li>{% if user.is_superuser %}<a href="{% url 'admin:users' %}">Админка</a>{% endif %}</li>
+</ul>

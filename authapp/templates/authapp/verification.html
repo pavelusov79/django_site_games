@@ -1,0 +1,15 @@
+{% extends 'authapp/base.html' %}
+
+{% block content %}
+    <p>
+    {% if user %}
+        Поздравляем с успешной регистрацией!
+    {% else %}
+        Ошибка в регистрации пользователя {{user.name}}
+    {% endif %}
+    </p>
+    <br>
+    <button class="btn btn-round form-control">
+        <a href="{% url 'main' %}">На главную</a>
+    </button>
+{% endblock %}

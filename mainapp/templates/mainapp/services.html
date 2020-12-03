@@ -1,0 +1,91 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+	{% block header %}
+	<div class="header-cont">
+	{% endblock %}
+		{% block menu %}
+		<div class="menu">
+			{% include 'mainapp/include/inc_menu_gray.html' %}
+			<hr class="gray">
+			<div class="pull"></div>
+		</div>
+		{% endblock %}
+    {% block content%}
+	<h3 class="cont_head text-center">Services</h3>
+	<div class="container">
+		<div class="row justify-content-center mb-5" id="serv1">
+			<div class="col-3">
+			    <a class="serv-img" href="#"><img
+                        src="{% static 'img/vetka@1X.png' %}"
+                        alt="img"></a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Repreh Qui In Ea Voluptate</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5" id="serv2">
+			<div class="col-3">
+			    <a class="serv-img" href="#"><img
+                        src="{% static 'img/arrow.png' %}"
+                        alt="arrow"></a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Voluptatibus Maiores Alias</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5" id="serv3">
+			<div class="col-3">
+			    <a class="serv-img" href="#">$</a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Aut Perferendis Doloribus</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5" id="serv4">
+			<div class="col-3">
+			    <a class="serv-img" href="#"><img
+                        src="{% static 'img/home.png' %}"
+                        alt="home"></a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Dut Aut Reiciendis Maiores</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5" id="serv5">
+			<div class="col-3">
+			    <a class="serv-img" href="#">
+					<img src="{% static 'img/download.png' %}"
+                         alt="download">
+				</a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Maiores Alias Consequatur</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5" id="serv6">
+			<div class="col-3">
+			    <a class="serv-img" href="#">
+					<img src="{% static 'img/settings.png' %}"
+                         alt="settings">
+				</a>
+			</div>
+			<div class="col-7">
+				<p class="serv-head s-head">Doloribus Volupta Maiores</p>
+				<p class="serv-t">Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat <span class="text_hide hide">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span><span class="link">read more...</span></p>
+			</div>
+		</div>
+	</div>
+    {% endblock %}
+    {% block contuct_us %}{% endblock %}
+    {% block route %}{% endblock %}

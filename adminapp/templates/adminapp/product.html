@@ -1,0 +1,43 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="prod_title_name"><h2>{{ object.id_prod.name|title }} (Жанр: {{ object.id_prod.category.name|title }})</h2></div>
+	<div class="product-read">
+		<div class="product_record">
+				<img src="/media/{{ object.id_prod.image }}" alt="game">
+				<div class="product_actions">
+					<button>
+						<a href="{% url 'admin:product_update' object.id_prod.category.pk %}">редактировать</a>
+					</button>
+					<button>
+						<a href="{% url 'admin:product_delete' object.id_prod.category.pk %}">удалить</a>
+					</button>
+				</div>
+				<div class="summary">
+					<b>цена</b>
+					<p>${{ object.id_prod.price }}</p>
+					<b>количество</b>
+					<p>{{ object.id_prod.quantity }}</p>
+				</div>
+				<div class="product_desc">
+					{{ object.id_prod.description|title }}
+				</div>
+			</div>
+	</div>
+	<div class="img_product_item">
+		<p>Изображения на странице product_page</p>
+		<div class="media-small">
+			<img src="/media/{{ object.img_1 }}" alt="game">
+			<img src="/media/{{ object.img_2 }}" alt="game">
+			<img src="/media/{{ object.img_3 }}" alt="game">
+			<img src="/media/{{ object.img_4 }}" alt="game">
+		</div>
+	</div>
+	<button class="btn btn-round form-control">
+            <a href="{% url 'admin:products' object.id_prod.category.pk %}">
+                к списку продуктов категории
+            </a>
+        </button>
+{% endblock %}

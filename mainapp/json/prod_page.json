@@ -1,0 +1,107 @@
+[
+	{
+		"id_prod": "HITMAN",
+		"img_1": "prod_page/hitman1.jpg",
+		"img_2": "prod_page/hitman2.jpg",
+		"img_3": "prod_page/hitman3.jpg",
+		"img_4": "prod_page/hitman4.jpg"
+	},
+	{
+		"id_prod": "THIEF",
+		"img_1": "prod_page/thief1.jpeg",
+		"img_2": "prod_page/thief2.jpg",
+		"img_3": "prod_page/thief3.jpeg",
+		"img_4": "prod_page/thief4.jpg"
+	},
+	{
+		"id_prod": "DISHONORED 2",
+		"img_1": "prod_page/dis1.jpg",
+		"img_2": "prod_page/dis2.jpg",
+		"img_3": "prod_page/dis3.jpg",
+		"img_4": "prod_page/dis4.jpg"
+	},
+	{
+		"id_prod": "MIDDLE EARTH: Shadow of War",
+		"img_1": "prod_page/middle1.jpg",
+		"img_2": "prod_page/middle2.jpg",
+		"img_3": "prod_page/middle3.jpg",
+		"img_4": "prod_page/middle4.jpg"
+	},
+	{
+		"id_prod": "CALL OF DUTY Infinite Warface",
+		"img_1": "prod_page/call_duty1.jpg",
+		"img_2": "prod_page/call_duty2.jpg",
+		"img_3": "prod_page/call_duty3.jpg",
+		"img_4": "prod_page/call_duty4.jpg"
+	},
+	{
+		"id_prod": "WORLD OF WARSHIPS",
+		"img_1": "prod_page/ships1.jpg",
+		"img_2": "prod_page/ships2.jpg",
+		"img_3": "prod_page/ships3.jpg",
+		"img_4": "prod_page/ships4.jpg"
+	},
+	{
+		"id_prod": "FOR HONOR",
+		"img_1": "prod_page/honor1.jpg",
+		"img_2": "prod_page/honor2.jpg",
+		"img_3": "prod_page/honor3.jpg",
+		"img_4": "prod_page/honor4.jpg"
+	},
+	{
+		"id_prod": "WORLD OF TANKS",
+		"img_1": "prod_page/tank1.jpg",
+		"img_2": "prod_page/tank2.png",
+		"img_3": "prod_page/tank3.jpg",
+		"img_4": "prod_page/tank4.jpg"
+	},
+	{
+		"id_prod": "BUTTELFIELD 4",
+		"img_1": "prod_page/buttle4_1.jpg",
+		"img_2": "prod_page/buttle4_2.jpg",
+		"img_3": "prod_page/buttle4_3.jpg",
+		"img_4": "prod_page/buttle4_4.jpg"
+	},
+	{
+		"id_prod": "STAR WARS: Buttlefront II",
+		"img_1": "prod_page/star1.jpg",
+		"img_2": "prod_page/star2.jpg",
+		"img_3": "prod_page/star3.jpg",
+		"img_4": "prod_page/star4.jpg"
+	},
+	{
+		"id_prod": "BUTTLEFIELD 1",
+		"img_1": "prod_page/buttle1.jpg",
+		"img_2": "prod_page/buttle2.jpg",
+		"img_3": "prod_page/buttle3.jpg",
+		"img_4": "prod_page/buttle4.jpg"
+	},
+	{
+		"id_prod": "World of Warcraft: Wrath of The Linch King",
+		"img_1": "prod_page/warcraft1.jpg",
+		"img_2": "prod_page/warcraft2.jpg",
+		"img_3": "prod_page/warcraft3.jpg",
+		"img_4": "prod_page/warcraft4.jpg"
+	},
+	{
+		"id_prod": "Ryse: Son of Rome",
+		"img_1": "prod_page/ryse1.jpg",
+		"img_2": "prod_page/ryse2.jpg",
+		"img_3": "prod_page/ryse3.jpg",
+		"img_4": "prod_page/ryse4.jpg"
+	},
+	{
+		"id_prod": "Tomb Raider",
+		"img_1": "prod_page/tom1.jpg",
+		"img_2": "prod_page/tom2.jpg",
+		"img_3": "prod_page/tom3.jpg",
+		"img_4": "prod_page/tom4.jpg"
+	},
+	{
+		"id_prod": "Assasin's Creed: Rogue",
+		"img_1": "prod_page/assasians1.jpg",
+		"img_2": "prod_page/assasins2.png",
+		"img_3": "prod_page/assasins3.jpg",
+		"img_4": "prod_page/assasings4.png"
+	}
+]

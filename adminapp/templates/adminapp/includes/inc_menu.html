@@ -1,0 +1,26 @@
+<ul class="menu">
+    <li><a href="{% url 'main' %}">на сайт</a></li>
+    <li>
+        <a href="{% url 'admin:users' %}" class="{% if request.resolver_match.url_name == 'users' %}gray-selected{% endif %}">
+            пользователи
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'admin:categories' %}" 
+        class="{% if request.resolver_match.url_name == 'categories' or category.name %}gray-selected{% endif %}">
+            категории{% if category %}:<span>{{ category.name }}</span>{% endif %}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'admin:news_page' 1 %}"
+          class="{% if request.resolver_match.url_name == 'news_page' %}gray-selected
+        {% endif %}">новости
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'admin:subscribers' %}"
+          class="{% if request.resolver_match.url_name == 'subscribers' %}gray-selected
+        {% endif %}">подписчики
+        </a>
+    </li>
+</ul>

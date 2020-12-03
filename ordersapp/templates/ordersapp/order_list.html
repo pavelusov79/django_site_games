@@ -1,0 +1,58 @@
+{% extends 'ordersapp/base.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="header-cont"></div>
+{% endblock %}
+		{% block menu %}
+		<div class="menu">
+			{% include 'mainapp/include/inc_menu_gray.html' %}
+			<hr class="gray">
+			<div class="pull"></div>
+		</div>
+		{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Ваши заказы, {% if user.first_name %} {{ user.first_name|title}}
+        {% else %} Пользователь {% endif %}
+    </h2>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-1">ID</div>
+        <div class="col-md-2">Создан</div>
+        <div class="col-md-2">Обновлен</div>
+        <div class="col-md-2">Статус</div>
+        <div class="col-md-5 text-center">Действия</div>
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+        {% for item in object_list %}
+        {% if item.is_active %}
+        <div class="col-md-1">{{ item.pk }}</div>
+        <div class="col-md-2">{{ item.created|date:"Y-m-d H:i:s" }}</div>
+        <div class="col-md-2">{{ item.updated|date:"Y-m-d H:i:s" }}</div>
+        <div class="col-md-2">{{ item.get_status_display }}</div>
+        <div class="col-md-2"><a href="{% url 'ordersapp:order_read' item.pk %}">посмотреть</a></div>
+        <div class="col-md-2">{% if item.status == 'FM' %}
+            <a href="{% url 'ordersapp:order_update' item.pk %}">редактировать</a>{% endif %}
+        </div>
+        <div class="col-md-1">{% if item.status == 'FM' %}
+            <a href="{% url 'ordersapp:order_delete' item.pk %}">удалить</a>{% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <button class = "btn btn-default btn-round">
+                <a href = "{% url 'main' %}">на главную</a>
+            </button>
+            <button class = "btn btn-default btn-round">
+                <a href= "{% url 'ordersapp:order_create' %}">новый</a>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="container mt-5">
+{% if object %}
+    <h2>Заказ No{{ object.pk }} от {{ object.created|date:"Y-m-d H:i:s" }}</h2>
+    <hr>
+    <h4>заказчик: {{ user.last_name }} {{ user.first_name }} </h4>
+    <h4>обновлен: {{ object.updated|date:"Y-m-d H:i:s" }}</h4>
+    <h4>cтатус: {{ object.get_status_display }}</h4>
+    <hr>
+    <h4>общее количество товаров: <span class="order_total_quantity">{{ object.get_total_quantity }}</span></h4>
+    <h3>общая стоимость: <span>$</span><span class="order_total_cost">{{ object.get_total_cost}}</span></h3>
+{% else %}
+    <div class="h2">Новый заказ</div>
+    <hr>
+    <h4>заказчик: {{ user.last_name }} {{ user.first_name }} </h4>
+    {% if basket.0 %}
+        <h4>общее количество товаров: <span class="order_total_quantity">{{basket.0.total_quantity }}</span></h4>
+        <h3>общая стоимость: <span class="order_total_cost">${{basket.0.total_cost }}</span></h3>
+    {% endif %}
+{% endif %}
+<hr>
+</div>

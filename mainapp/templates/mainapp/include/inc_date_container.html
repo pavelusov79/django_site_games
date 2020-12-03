@@ -1,0 +1,12 @@
+{% for item in news_item %}
+<div class="date-container">
+    <div class="date">
+        <p class="date_p">{{ item.published|date:"d" }}</p>
+        <p class="text_date">{{ item.published|date:"F" }}<br>{{ item.published|date:"Y" }}</p>
+    </div>
+    <div class="news_left_text">
+        <a href="{% url 'news_detail'  item.pk %}"><p>{{ item.title }}</p></a>
+        <p id="d-text_1">{{ item.short_desc }}</p>
+    </div>
+</div>
+{% endfor %}

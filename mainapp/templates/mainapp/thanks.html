@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+	{% block header %}
+	<div class="header-cont">
+	{% endblock %}
+		{% block menu %}
+		<div class="menu">
+			{% include 'mainapp/include/inc_menu_gray.html' %}
+			<hr class="gray">
+			<div class="pull"></div>
+		</div>
+		{% endblock %}
+    {% block content%}
+	<div class="container">
+		<div class="row justify-content-center mt-5">
+			<div class="col-11 col-md-6">
+				<h4 style="line-height: 3.0rem;">Thank you for your inquiry. We will contact with
+					you as soon as possible.</h4>
+			</div>
+		</div>
+	</div>
+    {% endblock %}
+    {% block contuct_us %}{% endblock %}
+    {% block route %}{% endblock %}

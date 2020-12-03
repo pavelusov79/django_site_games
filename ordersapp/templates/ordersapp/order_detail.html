@@ -1,0 +1,21 @@
+{% extends 'ordersapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'ordersapp/includes/inc_order_summary.html' %}
+    {% for item in object.orderitems.select_related %}
+    <div class="basket_record">
+        <img src="/media/{{ item.product.image }}" width="120" height="160" alt="product">
+        <p class="category_name">{{ item.product.category.name }}</p>
+        <p class="product_name">{{ item.product.name }}</p>
+        <p class="product_price">
+            <!--{% if item.product.quantity >= 200 %}${{ item.product.disc_price }}{% else %}
+            ${{ item.product.price }}{% endif %}-->
+            ${{ item.product.get_price }}
+            </p>
+        <p class="product_quantity"> x {{ item.quantity }} шт.</p>
+        <p class="product_cost">${{ item.get_product_cost }}</p>
+    </div>
+    {% endfor %}
+    {% include 'ordersapp/includes/inc_order_actions.html' %}
+{% endblock %}

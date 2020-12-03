@@ -1,0 +1,52 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block header %}
+<div class="header-cont"></div>
+{% endblock %}
+    {% block menu %}
+    <div class="menu">
+        {% include 'mainapp/include/inc_menu_gray.html' %}
+        <hr class="gray">
+        <div class="pull"></div>
+    </div>
+    {% endblock %}
+	{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mt-5 mb-3">Результаты поиска</h1>
+                {% if object_list %}
+                    {% for object in object_list %}
+                        <div>
+                            {% if object.title %}
+                            <a href="{% url 'news_detail' object.id %}">
+                                <h2>{{ object.title }}</h2>
+                            </a>
+                            {{ object.short_desc|safe }}
+                            <p><a class="btn btn-default btn-sm"
+                                  href="{% url 'news_detail' object.id %}">
+                                <strong>Читать далее</strong></a></p>
+                            {% endif %}
+                            {% if object.name %}
+                            <a href="{% url 'product_page' object.id %}">
+                                <h2>{{ object.name }}</h2>
+                            </a>
+                            {{ object.description|truncatewords_html:20 }}
+                            <p><a class="btn btn-default btn-sm"
+                                  href="{% url 'product_page' object.id %}"><strong>Читать
+                                далее</strong></a></p>
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <p>Не найдено публикаций по вашему запросу<br>Попробуйте повторить запрос с
+                        другой формулировкой</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block contuct_us %}{% endblock %}
+    {% block route %}{% endblock %}

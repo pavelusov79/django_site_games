@@ -1,0 +1,257 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block header %}
+<div class="header-cont"></div>
+{% endblock %}
+    {% block menu %}
+    <div class="menu">
+        {% include 'mainapp/include/inc_menu_gray.html' %}
+        <hr class="gray">
+        <div class="pull"></div>
+    </div>
+    {% endblock %}
+{% block content %}
+    <h3 class="cont_head text-center">Our Team</h3>
+	<div class="container">
+		<div class="row justify-content-center row-person mb-4">
+			<div class="col-3 col-lg-2">
+				<img class="img-fluid"
+                     src="{% static 'img/person_1.png' %}" alt="img">
+			</div>
+			<div class="col-6 col-md-5">
+				<p class="name">Mary Jane</p>
+				<p class="position">Vestibulum</p>
+				<p class="team-text my-4">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. A at delectus ipsa iure ducimus in vitae iusto perferendis autem excepturi!</p>
+				<button class="btn btn-primary mb-3">Ask your question</button>
+			</div>
+			<div class="col-5 col-sm-3">
+				<p class="team-name text-center">Responsibility</p>
+				<div id="carousel3" class="carousel slide">
+				  	<ol class="carousel-indicators car3-indicators">
+				    	<li data-target="#carousel3" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carousel3" data-slide-to="1"></li>
+				    	<li data-target="#carousel3" data-slide-to="2"></li>
+				  	</ol>
+				  	<div class="carousel-inner">
+				    	<div class="carousel-item active">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-triangle-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M8.065 2.016a.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.162.162 0 0 1-.054.06.115.115 0 0 1-.066.017l-6.856-.017V2a.13.13 0 0 1 .063.016zm-1.043-.45a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767L7.022 1.566z"/>
+								</svg>
+								<p class="text-head-carousel">SEO MARKETING</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+			      			<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M4 2H2v2h2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2H7v2h2V2zm5 0h-2v2h2V2zM4 7H2v2h2V7zm5 0H7v2h2V7zm5 0h-2v2h2V7zM4 12H2v2h2v-2zm5 0H7v2h2v-2zm5 0h-2v2h2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+								</svg>
+								<p class="text-head-carousel">BRANDING</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+			      				<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+								</svg>
+								<p class="text-head-carousel">WEB DESIGN</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				  	</div>
+				  	<a class="carousel-control-prev car3-prev" href="#carousel3" role="button" data-slide="prev">
+				    	<span class="carousel-control-prev-icon prev-icon3"aria-hidden="true"></span>
+				    	<span class="sr-only">Previous</span>
+				  	</a>
+				  	<a class="carousel-control-next car3-next" href="#carousel3" role="button" data-slide="next">
+				    	<span class="carousel-control-next-icon next-icon3" aria-hidden="true"></span>
+				    	<span class="sr-only">Next</span>
+				  	</a>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center row-person mb-4">
+			<div class="col-3 col-lg-2">
+				<img class="img-fluid"
+                     src="{% static 'img/person_2.png' %}" alt="img">
+			</div>
+			<div class="col-6 col-md-5">
+				<p class="name">Peter Parker</p>
+				<p class="position">Vestibulum</p>
+				<p class="team-text my-4">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. A at delectus ipsa iure ducimus in vitae iusto perferendis autem excepturi!</p>
+				<button class="btn btn-primary mb-3">Ask your question</button>
+			</div>
+			<div class="col-5 col-sm-3">
+				<p class="team-name text-center">Responsibility</p>
+				<div id="carousel4" class="carousel slide">
+				  	<ol class="carousel-indicators car3-indicators">
+				    	<li data-target="#carousel4" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carousel4" data-slide-to="1"></li>
+				    	<li data-target="#carousel4" data-slide-to="2"></li>
+				  	</ol>
+				  	<div class="carousel-inner">
+				    	<div class="carousel-item active">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"/>
+  								<path d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+								</svg>
+								<p class="text-head-carousel">SALES</p>
+							</div>
+				      		<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+			      			<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M4 2H2v2h2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2H7v2h2V2zm5 0h-2v2h2V2zM4 7H2v2h2V7zm5 0H7v2h2V7zm5 0h-2v2h2V7zM4 12H2v2h2v-2zm5 0H7v2h2v-2zm5 0h-2v2h2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+								</svg>
+								<p class="text-head-carousel">BRANDING</p>
+							</div>
+				      		<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+			      				<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+								</svg>
+								<p class="text-head-carousel">WEB DESIGN</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				  	</div>
+				  	<a class="carousel-control-prev car3-prev" href="#carousel4" role="button" data-slide="prev">
+				    	<span class="carousel-control-prev-icon prev-icon3"aria-hidden="true"></span>
+				    	<span class="sr-only">Previous</span>
+				  	</a>
+				  	<a class="carousel-control-next car3-next" href="#carousel4" role="button" data-slide="next">
+				    	<span class="carousel-control-next-icon next-icon3" aria-hidden="true"></span>
+				    	<span class="sr-only">Next</span>
+				  	</a>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center row-person mb-4">
+			<div class="col-3 col-lg-2">
+				<img class="img-fluid"
+                     src="{% static 'img/person_3.png' %}" alt="img">
+			</div>
+			<div class="col-6 col-md-5">
+				<p class="name">John Watson</p>
+				<p class="position">Vestibulum</p>
+				<p class="team-text my-4">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. A at delectus ipsa iure ducimus in vitae iusto perferendis autem excepturi!</p>
+				<button class="btn btn-primary mb-3">Ask your question</button>
+			</div>
+			<div class="col-5 col-sm-3">
+				<p class="team-name text-center">Responsibility</p>
+				<div id="carousel5" class="carousel slide">
+				  	<ol class="carousel-indicators car3-indicators">
+				    	<li data-target="#carousel5" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carousel5" data-slide-to="1"></li>
+				    	<li data-target="#carousel5" data-slide-to="2"></li>
+				  	</ol>
+				  	<div class="carousel-inner">
+				    	<div class="carousel-item active">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-keyboard" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M14 5H2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z"/>
+  								<path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z"/>
+								</svg>
+								<p class="text-head-carousel">DEVELOPMENT</p>
+							</div>
+				      		<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+			      			<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M4 2H2v2h2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2H7v2h2V2zm5 0h-2v2h2V2zM4 7H2v2h2V7zm5 0H7v2h2V7zm5 0h-2v2h2V7zM4 12H2v2h2v-2zm5 0H7v2h2v-2zm5 0h-2v2h2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+								</svg>
+								<p class="text-head-carousel">BRANDING</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+			      				<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+								</svg>
+								<p class="text-head-carousel">WEB DESIGN</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				  	</div>
+				  	<a class="carousel-control-prev car3-prev" href="#carousel5" role="button" data-slide="prev">
+				    	<span class="carousel-control-prev-icon prev-icon3"aria-hidden="true"></span>
+				    	<span class="sr-only">Previous</span>
+				  	</a>
+				  	<a class="carousel-control-next car3-next" href="#carousel5" role="button" data-slide="next">
+				    	<span class="carousel-control-next-icon next-icon3" aria-hidden="true"></span>
+				    	<span class="sr-only">Next</span>
+				  	</a>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center row-person mb-4">
+			<div class="col-3 col-lg-2">
+				<img class="img-fluid"
+                     src="{% static 'img/person_4.png' %}" alt="img">
+			</div>
+			<div class="col-6 col-md-5">
+				<p class="name">Steven Wilson</p>
+				<p class="position">Vestibulum</p>
+				<p class="team-text my-4">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. A at delectus ipsa iure ducimus in vitae iusto perferendis autem excepturi!</p>
+				<button class="btn btn-primary mb-3">Ask your question</button>
+			</div>
+			<div class="col-5 col-sm-3">
+				<p class="team-name text-center">Responsibility</p>
+				<div id="carousel6" class="carousel slide">
+				  	<ol class="carousel-indicators car3-indicators">
+				    	<li data-target="#carousel6" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carousel6" data-slide-to="1"></li>
+				    	<li data-target="#carousel6" data-slide-to="2"></li>
+				  	</ol>
+				  	<div class="carousel-inner">
+				    	<div class="carousel-item active">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-triangle-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M8.065 2.016a.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.162.162 0 0 1-.054.06.115.115 0 0 1-.066.017l-6.856-.017V2a.13.13 0 0 1 .063.016zm-1.043-.45a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767L7.022 1.566z"/>
+								</svg>
+								<p class="text-head-carousel">SEO MARKETING</p>
+							</div>
+				      		<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+			      			<div class="d-block w-100 d-flex inner-block justify-content-center">
+				      			<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M4 2H2v2h2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2H7v2h2V2zm5 0h-2v2h2V2zM4 7H2v2h2V7zm5 0H7v2h2V7zm5 0h-2v2h2V7zM4 12H2v2h2v-2zm5 0H7v2h2v-2zm5 0h-2v2h2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+								</svg>
+								<p class="text-head-carousel">BRANDING</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				    	<div class="carousel-item">
+				      		<div class="d-block w-100 d-flex inner-block justify-content-center">
+			      				<svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+								</svg>
+								<p class="text-head-carousel">WEB DESIGN</p>
+							</div>
+			      			<p class="text-carousel3 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit quas, et!</p>
+				    	</div>
+				  	</div>
+				  	<a class="carousel-control-prev car3-prev" href="#carousel6" role="button" data-slide="prev">
+				    	<span class="carousel-control-prev-icon prev-icon3"aria-hidden="true"></span>
+				    	<span class="sr-only">Previous</span>
+				  	</a>
+				  	<a class="carousel-control-next car3-next" href="#carousel6" role="button" data-slide="next">
+				    	<span class="carousel-control-next-icon next-icon3" aria-hidden="true"></span>
+				    	<span class="sr-only">Next</span>
+				  	</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block contuct_us %}{% endblock %}
+{% block route %}{% endblock %}
