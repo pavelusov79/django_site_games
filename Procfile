@@ -1,1 +1,1 @@
-web: gunicorn historical_games.wsgi --log-file -
+web: <bash command to start production server>
