@@ -179,3 +179,7 @@ SOCIAL_AUTH_PIPELINE = (
      'social_core.pipeline.user.user_details',
 )
 
+
+
+
+

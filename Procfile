@@ -1,1 +1,1 @@
-web: <bash command to start production server>
+web: gunicorn historical_games.wsgi --timeout 15 --keep-alive 5 --log-level debug
