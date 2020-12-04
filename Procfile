@@ -1,1 +1,1 @@
-web: gunicorn historical_games.wsgi --timeout 15 --keep-alive 5 --log-level debug
+web: gunicorn historical_games.wsgi --log-file -

@@ -6,10 +6,10 @@ chardet==3.0.4
 cryptography==3.1
 defusedxml==0.6.0
 distlib==0.3.1
-django==3.1.1
+Django==3.1.1
 django-debug-toolbar==2.2
 filelock==3.0.12
-gunicorn==19.9.0
+gunicorn==20.0.4
 idna==2.10
 importlib-metadata==3.1.1
 oauthlib==3.1.0
@@ -31,3 +31,4 @@ virtualenv==20.2.1
 virtualenv-clone==0.5.4
 whitenoise==5.2.0
 zipp==3.4.0
+django-heroku==0.3.1
