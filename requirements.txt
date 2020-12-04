@@ -6,7 +6,7 @@ chardet==3.0.4
 cryptography==3.1
 defusedxml==0.6.0
 distlib==0.3.1
-Django==3.1.1
+django==3.1.1
 django-debug-toolbar==2.2
 filelock==3.0.12
 gunicorn==19.9.0
@@ -15,7 +15,7 @@ importlib-metadata==3.1.1
 oauthlib==3.1.0
 Pillow==7.2.0
 pipenv==2020.11.15
-psycopg2-binary==2.8.6
+psycopg2==2.8.6
 pycparser==2.20
 PyJWT==1.7.1
 python3-openid==3.2.0
@@ -29,4 +29,5 @@ sqlparse==0.3.1
 urllib3==1.25.10
 virtualenv==20.2.1
 virtualenv-clone==0.5.4
+whitenoise==5.2.0
 zipp==3.4.0
