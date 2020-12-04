@@ -1,1 +1,1 @@
-web: gunicorn historical_games_2.wsgi --log-file -
+web: gunicorn historical_games.wsgi --log-file -
