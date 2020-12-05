@@ -52,7 +52,7 @@ def main(request):
 
             send_mail('сообщение с сайта historical_games',
                       f'от: {name}\nemail: {email}\n{message}', DEFAULT_FROM_EMAIL, recipients)
-            return HttpResponseRedirect('thanks')
+            return render(request, 'mainapp/thanks.html')
 
         else:
             form = ContactForm()
@@ -106,7 +106,7 @@ def catalog(request, page=1):
 
             send_mail('сообщение с сайта historical_games',
                       f'от: {name}\nemail: {email}\n{message}', DEFAULT_FROM_EMAIL, recipients)
-            return HttpResponseRedirect('thanks')
+            return render(request, 'mainapp/thanks.html')
 
     else:
         form = ContactForm()
@@ -134,7 +134,7 @@ def contacts(request):
 
             send_mail('сообщение с сайта historical_games',
                       f'от: {name}\nemail: {email}\n{message}', DEFAULT_FROM_EMAIL, recipients)
-            return HttpResponseRedirect('thanks')
+            return render(request, 'mainapp/thanks.html')
     else:
         form = ContactForm()
 
@@ -156,13 +156,27 @@ def product_page(request, pk):
 
     # with open("json.json") as f:
     # 	data = json.load(f)
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            recipients = ['usov.p@mail.ru']
+
+            send_mail('сообщение с сайта historical_games',
+                      f'от: {name}\nemail: {email}\n{message}', DEFAULT_FROM_EMAIL, recipients)
+            return render(request, 'mainapp/thanks.html')
+    else:
+        form = ContactForm()
 
     context = {
         'title': title,
         # 'data': data
         'prod_img': prod_img,
         'title_prod': title_prod,
-        'similar_products': similar_products
+        'similar_products': similar_products,
+        'form': form
         # 'basket': basket
     }
     return render(request, 'mainapp/product_page.html', context)
@@ -175,12 +189,26 @@ def product_discount(request, pk):
         quantity__gte=200).order_by('?')[:4]
     title = title_prod.name
     # basket = get_basket(request.user)
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            recipients = ['usov.p@mail.ru']
+
+            send_mail('сообщение с сайта historical_games',
+                      f'от: {name}\nemail: {email}\n{message}', DEFAULT_FROM_EMAIL, recipients)
+            return render(request, 'mainapp/thanks.html')
+    else:
+        form = ContactForm()
 
     context = {
         'title': title,
         'disc_img': disc_img,
         'title_prod': title_prod,
-        'discount_products': discount_products
+        'discount_products': discount_products,
+        'form': form
         # 'basket': basket
     }
     return render(request, 'mainapp/product_discount_page.html', context)
