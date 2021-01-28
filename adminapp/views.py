@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from adminapp.forms import ShopUserAdminEditForm, \
-    ProductCategoryEditForm, ProductEditForm, NewsEditForm, SubscribeForm
+    ProductCategoryEditForm, ProductEditForm, NewsEditForm
 
 from authapp.models import ShopUser
 from mainapp.models import Product, ProductCategory, ProdPage, News, Subscribe
