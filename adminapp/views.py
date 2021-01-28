@@ -525,30 +525,18 @@ def product_delete(request, pk):
 @user_passes_test(lambda u: u.is_superuser)
 def subscribers(request):
     title = 'Админка / Подписчики'
-    subscribers_list = Subscribe.objects.all()
-    check = SubscribeForm()
+    sub_list = Subscribe.objects.filter(is_active=True)
+    checked_values = request.POST.getlist('checked')
+    if request.method == "POST":
+        checked_list = Subscribe.objects.filter(pk__in=checked_values).select_related()
+        if checked_list.filter(is_active=True):
+            checked_list.update(is_active=False)
 
-    content = {'title': title, 'objects': subscribers_list, 'field': check}
+        # elif checked_list.filter(is_active=False):
+        #     checked_list.update(is_active=True)
+
+    content = {'title': title, 'objects': sub_list}
 
     return render(request, 'adminapp/subscribers.html', content)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def subscribers_delete(request):
-    title = 'Админка / Удаление подписчиков'
-    sub_list = Subscribe.objects.all()
-    form = SubscribeForm()
-    field = sub_list.first()
-    if request.method == "POST":
-        for field in sub_list:
-            if field.is_active:
-                field.is_active = False
-            else:
-                field.is_active = True
-        return HttpResponseRedirect(reverse_lazy('admin:subscribers'))
-    content = {'title': title,
-               'object': field,
-               'form': form
-               }
-
-    return render(request, 'adminapp/sub_delete.html', content)

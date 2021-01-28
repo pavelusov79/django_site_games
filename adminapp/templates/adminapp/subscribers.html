@@ -4,19 +4,31 @@
 {% block content %}
 
     <div class="container my-5">
-        <a href="{% url 'admin:sub_delete' %}" class="btn btn-primary mb-3">
-            Удалить отмеченные
-        </a>
-        {% for object in objects %}
-        <div class="row justify-content-center">
-            <div class="col-3 check_field">
-                <p class="d-flex align-items-center">Удалить: {{ field.check }}</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary mb-3" value="Удалить отмеченные">
+
+            {% for object in objects %}
+            <div class="row justify-content-center">
+
+                <div class="col-3 check_field">
+
+                    <p class="d-flex align-items-center">Удалить: <input type="checkbox"
+                                                                         name="checked"
+                                                                         value="{{object.pk}}"></p>
+                </div>
+                {% if not object.is_active %}
+                <div class="col-6 col-md-6 email_field not_active">
+                    {{ object.client_email }}
+                </div>
+                {% else %}
+                <div class="col-6 col-md-6 email_field">
+                    {{ object.client_email }}
+                </div>
+                {% endif %}
             </div>
-            <div class="col-6 col-md-6 email_field">
-                {{ object.client_email }}
-            </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        </form>
     </div>
 
 {% endblock %}
