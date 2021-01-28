@@ -31,7 +31,6 @@ urlpatterns = [
 
 	# path('subscribers/', adminapp.SubscribersListView.as_view(), name='subscribers'),
 	path('subscribers/', adminapp.subscribers, name="subscribers"),
-	path('subscribers_delete/', adminapp.subscribers_delete, name="sub_delete"),
 	path('products/create/category/<int:pk>/', adminapp.product_create, name='product_create'),
 	path('products/read/category/<int:pk>/', adminapp.products, name='products'),
 	path('products/read/category/<int:pk>/<int:page>', adminapp.products, name='page'),
