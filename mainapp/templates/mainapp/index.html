@@ -235,17 +235,14 @@
 	<div class="subscribe">
 		<p>Subscribe with Us</p>
 		<div>
-			{% if sent == False %}
-			<form action="" method="post">
+			<p id="subscription"></p>
+			<form id="sub_form" action="{% url 'main' %}" method="post">
 				{% csrf_token %}
 				{{ subscribe_form.as_p }}
-				<!--<input type="text" placeholder="Email">-->
 				<input type="submit" name="#" id="sub_btn" value="Subscribe">
 			</form>
-			{% else %}
-				<p id="subscription">Thank you for subscription!</p>
-			{% endif %}
 		</div>
+	</div>
 	</div>
 	{% endblock %}
 	

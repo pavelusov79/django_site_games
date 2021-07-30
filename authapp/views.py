@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserProfileEditForm
 from django.contrib import auth
@@ -21,6 +22,7 @@ def send_verify_mail(user):
 def verify(request, email, activation_key):
     try:
         user = ShopUser.objects.get(email=email)
+        setattr(user, 'backend', 'django.contrib.auth.backends.ModelBackend')
         if user.activation_key == activation_key and not user.is_activation_key_expired():
             user.is_active = True
             user.save()
@@ -61,9 +63,14 @@ def logout(request):
     return HttpResponseRedirect(reverse('main'))
     
 
+def email_verify(request):
+    title = 'подтверждение почты'
+    context = {'title': title}
+    return render(request, 'authapp/email_verify.html', context)
+
+
 def register(request):
     title = 'регистрация'
-    
     if request.method == 'POST':
         register_form = ShopUserRegisterForm(request.POST, request.FILES)
     
@@ -71,10 +78,10 @@ def register(request):
             user = register_form.save()
             if send_verify_mail(user):
                 print('email sending success')
-                return HttpResponseRedirect(reverse('auth:login'))
+                return HttpResponseRedirect(reverse('auth:email_verify'))
             else:
                 print('error while email sending')
-                return HttpResponseRedirect(reverse('auth:login'))
+                return HttpResponse('ошибка отправки сообщения о регистрации')
     else:
         register_form = ShopUserRegisterForm()
 

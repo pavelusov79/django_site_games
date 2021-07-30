@@ -143,16 +143,12 @@ LOGIN_URL = '/auth/login'
 
 DOMAIN_NAME = 'http://blooming-hollows-30065.herokuapp.com'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = 'pavel.usov79@gmail.com'
-EMAIL_HOST_PASSWORD = 'Suslik1101'
+EMAIL_HOST_PASSWORD = 'xhsl vohp ysky diwn'
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-#вариант python -m smtpd -n -c DebuggingServer localhost:25
-#EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
-#вариант логирования сообщений почты в виде файлов вместо отправки
-# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-# EMAIL_FILE_PATH = 'tmp/email-messages/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 AUTHENTICATION_BACKENDS = (

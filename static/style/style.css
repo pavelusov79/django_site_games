@@ -883,6 +883,7 @@ img #social {
 	color: #ffffff;
 	font-family: Poppins;
 	font-size: 1.2rem;
+	display: none;
 }
 
 /*.subscribe div {

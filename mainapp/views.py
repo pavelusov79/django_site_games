@@ -7,38 +7,24 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
-from .models import Product, ProdPage, News
+from .models import Product, ProdPage, News, Subscribe
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from mainapp.forms import ContactForm, SubscribeForm
 
 
-# def get_basket(user):
-#     if user.is_authenticated:
-#         return Basket.objects.filter(user=user)
-#     else:
-#         return []
-
-
 def main(request):
-    # gallery_box = [
-    # 	{'img': 'img/assasins.png', 'alt': 'assasings', 'name': "Assasin's Creed: Rogue"},
-    # 	{'img': 'img/raider.png', 'alt': 'raider', 'name': 'Tomb Raider'},
-    # 	{'img': 'img/ryse.png', 'alt': 'ryse', 'name': 'Ryse: Son of Rome'},
-    # 	{'img': 'img/warcraft.png', 'alt': 'warcraft', 'name': 'World of Warcraft: Wrath of The Linch King'}
-    # ]
     products = Product.objects.filter(category__is_active=True).exclude(quantity__gte=200).order_by('?')[:4]
     news_item = News.objects.filter(is_active=True).order_by('-published')[:3]
-    # basket = get_basket(request.user)
-    sent = False
     subscribe_form = SubscribeForm()
     form = ContactForm()
     if request.method == 'POST' and subscribe_form:
         subscribe_form = SubscribeForm(request.POST)
         if subscribe_form.is_valid():
             client_email = subscribe_form.cleaned_data['client_email']
-            sent = True
-            subscribe_form.save()
+            subscribe = Subscribe.objects.filter(client_email=client_email, checked=False).first()
+            if not subscribe:
+                Subscribe.objects.create(client_email=client_email, checked=False, is_active=True)
         else:
             subscribe_form = SubscribeForm()
 
@@ -59,35 +45,17 @@ def main(request):
 
     context = {
         'title': "Home",
-        # 'gallery_box': gallery_box
         'products': products,
-        # 'basket': basket
         'news_item': news_item,
         'form': form,
-        'sent': sent,
         'subscribe_form': subscribe_form
     }
     return render(request, 'mainapp/index.html', context)
 
 
 def catalog(request, page=1):
-    # gallery_box = [
-    # 	{'img': 'img/cat-movie_1.png', 'alt': 'game', 'name': 'BUTTLEFIELD 1'},
-    # 	{'img': 'img/cat-movie_2.png', 'alt': 'game', 'name': 'STAR WARS: Buttlefront II'},
-    # 	{'img': 'img/cat-movie_3.png', 'alt': 'game', 'name': 'BUTTELFIELD 4'},
-    # 	{'img': 'img/cat-movie_4.png', 'alt': 'game', 'name': 'WORLD OF TANKS'}
-    # ]
-    # gallery_box2 = [
-    # 	{'img': 'img/assasins.png', 'alt': 'game', 'name': "ASSASIN'S CREED: Rogue"},
-    # 	{'img': 'img/cat-movie_5.png', 'alt': 'game', 'name': 'FOR HONOR'},
-    # 	{'img': 'img/cat-movie_6.png', 'alt': 'game', 'name': 'WORLD OF WARSHIPS'},
-    # 	{'img': 'img/cat-movie_7.png', 'alt': 'game', 'name': 'CALL OF DUTY Infinite Warface'}
-    # ]
-
-    # disc_products = Product.objects.filter(category__is_active=True).filter(quantity__gte=200).order_by('?')[:2]
     disc_products = Product.objects.filter(Q(category__is_active=True) & Q(quantity__gte=200)).order_by('?')[:2]
     products = Product.objects.filter(category__is_active=True, is_active=True).order_by('?').exclude(quantity__gte=200)
-    # basket = get_basket(request.user)
     paginator = Paginator(products, 8)
     try:
         prod_paginator = paginator.page(page)
@@ -112,18 +80,14 @@ def catalog(request, page=1):
         form = ContactForm()
     context = {
         'title': "Catalog",
-        # 'gallery_box': gallery_box,
-        # 'gallery_box2': gallery_box2
         'products': prod_paginator,
         'disc_products': disc_products,
-        # 'basket': basket
         'form': form
     }
     return render(request, 'mainapp/catalog.html', context)
 
 
 def contacts(request):
-    # basket = get_basket(request.user)
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -140,7 +104,6 @@ def contacts(request):
 
     context = {
         'title': "Contacts",
-        # 'basket': basket
         'form': form
     }
     return render(request, 'mainapp/contacts.html', context)
@@ -152,10 +115,7 @@ def product_page(request, pk):
     similar_products = Product.objects.filter(category__is_active=True).exclude(name=title_prod.name).exclude(quantity__gte=200).filter(
         category=title_prod.category).order_by('?')[:4]
     title = title_prod.name
-    # basket = get_basket(request.user)
 
-    # with open("json.json") as f:
-    # 	data = json.load(f)
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -172,12 +132,10 @@ def product_page(request, pk):
 
     context = {
         'title': title,
-        # 'data': data
         'prod_img': prod_img,
         'title_prod': title_prod,
         'similar_products': similar_products,
         'form': form
-        # 'basket': basket
     }
     return render(request, 'mainapp/product_page.html', context)
 
@@ -188,7 +146,7 @@ def product_discount(request, pk):
     discount_products = Product.objects.filter(category__is_active=True).exclude(name=title_prod.name).filter(
         quantity__gte=200).order_by('?')[:4]
     title = title_prod.name
-    # basket = get_basket(request.user)
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -209,7 +167,6 @@ def product_discount(request, pk):
         'title_prod': title_prod,
         'discount_products': discount_products,
         'form': form
-        # 'basket': basket
     }
     return render(request, 'mainapp/product_discount_page.html', context)
 
@@ -231,7 +188,7 @@ def team(request):
 def news(request, page=1):
     news_item = News.objects.filter(is_active=True).order_by('-published')
     paginator = Paginator(news_item, 3)
-    # page = request.GET.get('page')
+
     try:
         news_paginator = paginator.page(page)
     except PageNotAnInteger:

@@ -72,4 +72,18 @@ window.onload = function() {
 	}
 }
 
-
+$('#sub_form').submit(function() {
+    var url = $(this).attr('action');
+    var type = $(this).attr('method');
+    $.ajax({
+        type: type,
+        url: url,
+        data: $(this).serialize(),
+        success: function(response) {
+            console.log('success');
+            $('#sub_form').css('display', 'none');
+            $('#subscription').css('display', 'block').html('Thank you for subscription!');
+        }
+    });
+    return false;
+});
