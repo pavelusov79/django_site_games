@@ -35,6 +35,13 @@ class ShopUserRegisterForm(UserCreationForm):
             raise forms.ValidationError("Вы слишком молоды!")
 
         return data
+    
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        user = ShopUser.objects.filter(email=email).first()
+        if user:
+            raise forms.ValidationError("Пользователь с таким адресом уже зарегистрирован. Выберите другой email для регистрации")
+        return email
 
     def save(self):
         user = super(ShopUserRegisterForm, self).save()
