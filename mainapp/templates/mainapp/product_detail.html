@@ -1,0 +1,63 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+	{% block header %}
+	<div class="header-cont">
+	{% endblock %}
+		{% block menu %}
+		<div class="menu">
+			{% include 'mainapp/include/inc_menu_gray.html' %}
+			<hr class="gray">
+			<div class="pull"></div>
+		</div>
+		{% endblock %}
+	{% block content %}
+	<div class="product">
+		<div class="product-box">
+			<div class="product_left">
+				<img class="big" src="/media/{{ object.prodpage_set.first.img_1 }}" alt="product">
+				<div>
+					<img class="select" src="/media/{{ object.prodpage_set.first.img_1 }}" alt="product_1">
+					<img src="/media/{{ object.prodpage_set.first.img_2 }}" alt="product_2">
+					<img src="/media/{{ object.prodpage_set.first.img_3 }}" alt="product_3">
+					<img src="/media/{{ object.prodpage_set.first.img_4 }}" alt="product_4">
+				</div>
+				
+			</div>
+			<div class="product_right">
+				<p class="product_text_1">{{ object.name }}</p>
+				<p class="product_text_2">${{ object.get_price }}
+				</p>
+				<a href="{% url 'basket:add' object.pk %}"><button>Buy</button></a>
+				<p class="product_text_3">{{ object.description }}</p>
+			</div>
+		</div>
+	</div>
+	{% if object.quantity < 200 %}
+		<div class="similar">
+		<p class="gallery-head similar-head">Similar-games</p>
+		<div class="gallery-container">
+			{% for item in similar_products %}
+			<div class="gallery-box">
+				<a href="{% url 'product_detail' item.pk %}"><img src="/media/{{item.image}}" width="271" height="376" alt="game"></a>
+				<p class="movie">{{ item.name }}</p>
+				<a href="{% url 'basket:add' item.pk %}"><button title ="купить за ${{ item.get_price }}">Buy</button></a>
+			</div>
+			{% endfor %}
+		</div>	
+	</div>
+	{% else %}
+		<div class="similar">
+			<p class="gallery-head similar-head">HOT SALES</p>
+			<div class="gallery-container">
+				{% for item in discount_products %}
+				<div class="gallery-box">
+					<a href="{% url 'product_detail' item.pk %}"><img src="/media/{{item.image}}" width="271" height="376" alt="game"></a>
+					<p class="movie">{{ item.name }}</p>
+					<a href="{% url 'basket:add' item.pk %}"><button>Buy</button></a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+	</div>
+	{% endblock %}

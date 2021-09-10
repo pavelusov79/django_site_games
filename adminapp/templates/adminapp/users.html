@@ -4,9 +4,9 @@
 
 {% block content %}
     <div class="users_list">
-		<button class="new_user">
-			<a href="{% url 'admin:user_create' %}">новый пользователь</a>
-		</button>
+		<div class="row">
+			<a class="btn btn-primary px-3 mt-3 mb-5" role="button" href="{% url 'admin:user_create' %}">новый пользователь</a>
+		</div>
 		{% for object in object_list %}
 			<div class="user_record {% if not object.is_active %}not_active{% endif %}">
 				<img src="{{ object.avatar|user_img_filter }}" alt="{{ object.username }}">

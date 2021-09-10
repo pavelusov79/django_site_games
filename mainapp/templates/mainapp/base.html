@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load cache %}
 <html>
 <head>
 	<meta charset="utf-8">
@@ -12,110 +13,104 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	{% endblock %}
-	{% block js %}
-	{% endblock %}
 </head>
 <body>
-	{% block header %}
-	
-	{% endblock %}
-		{% block top_tab %}
-		<div class="top_tab">
-			<div class="logo">
-				<a href="{% url 'main' %}">
-					<p class="logo_first">Historical</p>
-					<p class="logo_second">GAMES</p>
-				</a>
-			</div>
-			<div class="tel">
-				<a href="#"><img src="{% static 'img/tel.png' %}" alt="tel"></a>
-				<span class="text_tel">+123 456 7890</span>
-				<a href="#"><img src="{% static 'img/email.png' %}" alt="email"></a>
-				<span class="text_email">info@example.com</span>
-			</div>
-			<div class="search">
-				<form action="{% url 'search_results' %}" method="get">
-					<input name="q" type="text" placeholder="Search">
-					<div>
-						<button><img src="{% static 'img/search.png' %}" alt="search"></button></div>
-				</form>
-			</div>
-			{% if user.is_authenticated %}
-			<a class= "login_icon" href="{% url 'auth:edit' %}" title= " {{ user.first_name|default:'Пользователь' }} "></a>
-			{% else %}
-			<a class= "login_icon" href="{% url 'auth:login' %}" title= "Вход/регистрация"></a>	
-			{% endif %}
-			<a class= "basket" href="{% url 'basket:view' %}" title="
-				{% if basket %}
-					В козине {{ basket.0.total_quantity }} товаров на сумму ${{ basket.0.total_cost }}
-				{% endif %}">
-			</a>
-			<span>
-				{% if basket %}
-					${{ basket.0.total_cost }} ({{ basket.0.total_quantity }} шт)
-				{% endif %}
-			</span>
-		</div>
-		{% endblock %}
+{% block header %}
+{% endblock %}
 
-		{% block menu %}
-		
-		{% endblock %}
+{% block top_tab %}
+<div class="top_tab">
+	<div class="logo">
+		<a href="{% url 'main' %}">
+			<p class="logo_first">Historical</p>
+			<p class="logo_second">GAMES</p>
+		</a>
 	</div>
-	{% block content %}
-	
-	{% endblock %}
-	<div class="arrow">
-		<img src="{% static 'img/arrow_top.png' %}" alt="arrow_top">
+	<div class="tel">
+		<a href="#"><img src="{% static 'img/tel.png' %}" alt="tel"></a>
+		<span class="text_tel">+123 456 7890</span>
+		<a href="#"><img src="{% static 'img/email.png' %}" alt="email"></a>
+		<span class="text_email">info@example.com</span>
 	</div>
-	
-	{% block contuct_us %}
-	<div class="contuct_us">
-		<p class="cont_head">Contact Us</p>
-		<div class="cont-box">
-			<div class="box_left">
-				<p class="box_left_head">Get in touch with us</p>
-				<p class="box_left_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets 
-				containing Lorem Ipsum passages sed do, At vero eos et accusamus et 
-				iusto odio digs qui blanditiis
-				<br><br>
-				Leningradsky AVE 39, BLDG 79
-				MOSCOW 125167, Russia
-				<br><br>
-				Telephone : +00 111 222 3333
-				<br><br>
-				FAX : +1 888 888 4444
-				<br><br>
-				Email : <span id="mail">mail@example.com</span></p>
-			</div>
-			<div class="box_right">
-				<form action="#" method="post">
-					{% csrf_token %}
-        			{{ form.as_p }}
-					<!--<input type="text" placeholder="Name">
-					<input type="text" placeholder="Email">
-					<textarea name="#" id="#_1" placeholder="Message"></textarea> -->
-					<button class="form_sub">Submit</button>
-				</form>
-			</div>
+	<div class="search">
+		<form action="{% url 'search_results' %}" method="get">
+			<input name="q" type="text" placeholder="Search">
+			<div><button><img src="{% static 'img/search.png' %}" alt="search"></button></div>
+		</form>
+	</div>
+	{% if user.is_authenticated %}
+	<a class= "login_icon" href="{% url 'auth:edit' %}" title= " {{ user.first_name|default:'Пользователь' }} "></a>
+	{% else %}
+	<a class= "login_icon" href="{% url 'auth:login' %}" title= "Вход/регистрация"></a>
+	{% endif %}
+	<a class= "basket" href="{% url 'basket:view' %}" title="
+		{% if basket %}
+			В козине {{ basket.0.total_quantity }} товаров на сумму ${{ basket.0.total_cost }}
+		{% endif %}">
+	</a>
+	<span>
+	{% if basket %}
+		${{ basket.0.total_cost }} ({{ basket.0.total_quantity }} шт)
+	{% endif %}
+	</span>
+</div>
+{% endblock %}
+
+{% block menu %}
+{% endblock %}
+</div>
+{% block content %}
+{% endblock %}
+<div class="arrow">
+	<img src="{% static 'img/arrow_top.png' %}" alt="arrow_top">
+</div>
+
+{% block contuct_us %}
+<div class="contuct_us">
+	<p class="cont_head">Contact Us</p>
+	<div class="cont-box">
+		<div class="box_left">
+			<p class="box_left_head">Get in touch with us</p>
+			<p class="box_left_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets
+			containing Lorem Ipsum passages sed do, At vero eos et accusamus et
+			iusto odio digs qui blanditiis
+			<br><br>
+			Leningradsky AVE 39, BLDG 79
+			MOSCOW 125167, Russia
+			<br><br>
+			Telephone : +00 111 222 3333
+			<br><br>
+			FAX : +1 888 888 4444
+			<br><br>
+			Email : <span id="mail">mail@example.com</span></p>
+		</div>
+		<div class="box_right">
+			<form action="#" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button class="form_sub">Submit</button>
+			</form>
 		</div>
 	</div>
-	{% endblock %}
-	{% block route %}
-	<div class="route">
-		<p class="route_head">Route Map</p>
-		<div><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8971.370422099419!2d37.5301096!3d55.7959709!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549c0af2d5e3f%3A0xa77899d557548e3a!2sMail.Ru%20Group!5e0!3m2!1sru!2sru!4v1589671845786!5m2!1sru!2sru" width="1170" height="300" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
-	</div>
-	{% endblock %}
-	{% block footer %}
-	<div class="footer">
-		<p>&copy;{% now "Y" %} Историческе Игры. Все права защищены</p>
-	</div>
-	{% endblock %}
-	{% block jquery %}
-	<script src="{% static 'jquery-3.5.1.min.js' %}"></script>
-	<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
-	<script src="{% static 'script.js'%}"></script>
-	{% endblock %}
+</div>
+{% endblock %}
+{% block route %}
+{% cache 3600 frame %}
+<div class="route">
+	<p class="route_head">Route Map</p>
+	<div><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8971.370422099419!2d37.5301096!3d55.7959709!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549c0af2d5e3f%3A0xa77899d557548e3a!2sMail.Ru%20Group!5e0!3m2!1sru!2sru!4v1589671845786!5m2!1sru!2sru" width="1170" height="300" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+</div>
+{% endcache %}
+{% endblock %}
+{% block footer %}
+<div class="footer">
+	<p>&copy;{% now "Y" %} Историческе Игры. Все права защищены</p>
+</div>
+{% endblock %}
+{% block jquery %}
+<script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'script.js'%}"></script>
+{% endblock %}
 </body>
 </html>

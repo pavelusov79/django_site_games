@@ -27,8 +27,10 @@
 		</div>
 		<div class="basket_list">
         {% include 'basketapp/includes/inc_basket_list.html' %}
-			<button class="mt-4 my_button">
-				<a href="{% url 'order:order_create' %}">Создать заказ</a>
-			</button>
+			<a  class="btn btn-danger px-5 mt-5 mb-5" role="button" href="{% url 'order:order_create' %}">Создать заказ</a>
 		</div>
+		{% endblock %}
+		{% block contuct_us %}
+		{% endblock %}
+		{% block route %}
 		{% endblock %}

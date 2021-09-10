@@ -3,40 +3,50 @@
 
 
 {% block content %}
-	<div class="prod_title_name"><h2>{{ object.id_prod.name|title }} (Жанр: {{ object.id_prod.category.name|title }})</h2></div>
-	<div class="product-read">
-		<div class="product_record">
-				<img src="/media/{{ object.id_prod.image }}" alt="game">
-				<div class="product_actions">
-					<button>
-						<a href="{% url 'admin:product_update' object.id_prod.category.pk %}">редактировать</a>
-					</button>
-					<button>
-						<a href="{% url 'admin:product_delete' object.id_prod.category.pk %}">удалить</a>
-					</button>
-				</div>
-				<div class="summary">
-					<b>цена</b>
-					<p>${{ object.id_prod.price }}</p>
-					<b>количество</b>
-					<p>{{ object.id_prod.quantity }}</p>
-				</div>
-				<div class="product_desc">
-					{{ object.id_prod.description|title }}
-				</div>
+	<div class="prod_title_name mb-4"><h2>{{ object.name|title }} (Жанр: {{ object.category.name|title }})</h2></div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-2">
+				<img  class="img-fluid" src="/media/{{ object.image }}" alt="game">
 			</div>
-	</div>
-	<div class="img_product_item">
-		<p>Изображения на странице product_page</p>
-		<div class="media-small">
-			<img src="/media/{{ object.img_1 }}" alt="game">
-			<img src="/media/{{ object.img_2 }}" alt="game">
-			<img src="/media/{{ object.img_3 }}" alt="game">
-			<img src="/media/{{ object.img_4 }}" alt="game">
+			<div class="col-2 product_actions">
+				<button><a href="{% url 'admin:product_update' object.pk %}">редактировать</a></button>
+				<button><a href="{% url 'admin:product_delete' object.pk %}">удалить</a>
+				</button>
+			</div>
+			<div class="col-2 summary">
+				<b>цена</b>
+				<p>${{ object.price }}</p>
+				<b>количество</b>
+				<p>{{ object.quantity }}</p>
+			</div>
+			<div class="col-4 product_desc">
+				{{ object.description|title }}
+			</div>
 		</div>
 	</div>
-	<button class="btn btn-round form-control">
-            <a href="{% url 'admin:products' object.id_prod.category.pk %}">
+	<div class="img_product_item mt-5">
+		<p class="font-weight-bold">Изображения на странице product_page</p>
+		<div class="media-small">
+			{% if object.prodpage_set.first.img_1 %}
+			<img src="/media/{{ object.prodpage_set.first.img_1 }}" alt="game">
+			{% endif %}
+			{% if object.prodpage_set.first.img_2 %}
+			<img src="/media/{{ object.prodpage_set.first.img_2 }}" alt="game">
+			{% endif %}
+			{% if object.prodpage_set.first.img_3 %}
+			<img src="/media/{{ object.prodpage_set.first.img_3 }}" alt="game">
+			{% endif %}
+			{% if object.prodpage_set.first.img_4 %}
+			<img src="/media/{{ object.prodpage_set.first.img_4 }}" alt="game">
+			{% endif %}
+			{% if not object.prodpage_set.first %}
+			<p class="mb-5">изображения отсутствуют</p>
+			{% endif %}
+		</div>
+	</div>
+	<button class="btn btn-round form-control mb-5">
+            <a href="{% url 'admin:products' object.category.pk %}">
                 к списку продуктов категории
             </a>
         </button>

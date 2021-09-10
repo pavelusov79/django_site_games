@@ -7,12 +7,11 @@
         <form action="" method="post">
             {% csrf_token %}
             <input type="submit" class="btn btn-primary mb-3" value="Удалить отмеченные">
-
-            {% for object in objects %}
+            {% for object in object_list %}
             <div class="row justify-content-center">
 
                 <div class="col-3 check_field">
-
+                    <!--<p class="d-flex align-items-center">Удалить: {{ form.checked }}</p>-->
                     <p class="d-flex align-items-center">Удалить: <input type="checkbox"
                                                                          name="checked"
                                                                          value="{{object.pk}}"></p>

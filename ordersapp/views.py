@@ -149,10 +149,6 @@ def get_product_price(request, pk):
     if request.is_ajax():
         product = Product.objects.filter(pk=int(pk)).first()
         if product:
-            # if product.quantity >= 200:
-            #     return JsonResponse({'price': product.disc_price})
-            # else:
-            #     return JsonResponse({'price': product.price})
             return JsonResponse({'price': product.get_price})
         else:
             return JsonResponse({'price': 0})

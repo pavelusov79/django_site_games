@@ -1,0 +1,46 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+	<div class="row">
+		<a class="btn btn-primary mt-3 mb-5 px-3" role="button" href="{% url 'admin:product_create' category.pk %}">новый продукт</a>
+	</div>
+	<div class="row justify-content-center">
+	{% for object in object_list %}
+		<div class="col-2 {% if not object.is_active %}not_active {% endif %}">
+			<img  class="img-fluid" src="/media/{{ object.image }}" alt="{{ object.name }}">
+		</div>
+		<div class="col-2">Название: {{ object.name|title }}</div>
+		<div class="col-2">
+			<a class="btn btn-outline-primary px-3 mb-3" role="button" href="{% url 'admin:product_read' object.pk %}">подробнее</a>
+			<a class="btn btn-outline-primary px-3 mb-3" role="button" href="{% url 'admin:product_update' object.pk %}">редактировать</a>
+			<a class="btn btn-outline-primary px-3 mb-3" role="button" href="{% url 'admin:product_delete' object.pk %}">удалить</a>
+		</div>
+		<div class="col-2">
+			<b>цена</b>
+			<p>${{ object.price }}</p>
+			<b>количество</b>
+			{% if object.quantity >= 200 %}
+			<p style="color:red">{{ object.quantity }}</p>
+			{% else %}
+			<p>{{ object.quantity }}</p>
+			{% endif %}
+		</div>
+		<div class="col-4 mb-5">
+			{{ object.description|title }}
+		</div>
+	{% endfor%}
+	</div>
+
+	<div class="pagination">
+		{% if page_obj.has_previous %}
+		<a href="?page={{ page_obj.previous_page_number }}">&laquo</a>
+		{% endif %}
+		<span>{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+		{% if page_obj.has_next %}
+		<a href="?page={{ page_obj.next_page_number }}">&raquo</a>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

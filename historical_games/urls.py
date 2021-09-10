@@ -14,31 +14,31 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.static import static
-from mainapp import views
+from django.views.generic import TemplateView
+
 from django.conf import settings
 from django.urls import include, path
 
-from mainapp.views import SearchResultsView
+from mainapp.views import SearchResultsView, NewsListView, NewsDetailView, ContactsFormView, ProductListView, \
+    ProductDetailView, HomeView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('admin/', include('adminapp.urls', namespace='admin')),
     path('order/', include('ordersapp.urls', namespace='order')),
     path('', include('social_django.urls', namespace='social')),
-    path('', views.main, name="main"),
-    # path('catalog/', views.catalog, name="catalog"),
-    path('page/<int:page>', views.catalog, name="page"),
-    path('contacts/', views.contacts, name="contacts"),
-    path('thanks/', views.thanks, name='thanks'),
-    path('catalog/<int:pk>', views.product_page, name="product_page"),
-    path('discount/<int:pk>/', views.product_discount, name="discount"),
+    path('', HomeView.as_view(), name='main'),
+    path('catalog/', ProductListView.as_view(), name='catalog'),
+    path('contacts/', ContactsFormView.as_view(), name='contacts'),
+    path('thanks/', TemplateView.as_view(template_name='mainapp/thanks.html', extra_context={'title': 'success'}), name='thanks'),
+    path('product_detail/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
-    path('about/', views.about, name="about"),
-    path('news/<int:page>/', views.news, name="news"),
-    path('news/detail/<int:pk>', views.news_detail, name="news_detail"),
-    path('team/', views.team, name="team"),
-    path('services', views.services, name="services"),
+    path('about/', TemplateView.as_view(template_name='mainapp/about.html', extra_context={'title': 'About'}), name='about'),
+    path('news/', NewsListView.as_view(), name='news'),
+    path('news_<int:pk>/', NewsDetailView.as_view(), name="news_detail"),
+    path('team/', TemplateView.as_view(template_name='mainapp/team.html', extra_context={'title': 'Team'}), name='team'),
+    path('services/', TemplateView.as_view(template_name='mainapp/services.html', extra_context={'title': 'Services'}), name='services'),
     path('search/', SearchResultsView.as_view(), name="search_results")
 ]
 

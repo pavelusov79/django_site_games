@@ -45,7 +45,6 @@ def login(request):
     if request.method == 'POST' and login_form.is_valid():
         username = request.POST['username']
         password = request.POST['password']
-        
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
@@ -71,6 +70,7 @@ def email_verify(request):
 
 def register(request):
     title = 'регистрация'
+    
     if request.method == 'POST':
         register_form = ShopUserRegisterForm(request.POST, request.FILES)
     
@@ -78,9 +78,11 @@ def register(request):
             user = register_form.save()
             if send_verify_mail(user):
                 print('email sending success')
+                # return HttpResponseRedirect(reverse('auth:login'))
                 return HttpResponseRedirect(reverse('auth:email_verify'))
             else:
                 print('error while email sending')
+                # return HttpResponseRedirect(reverse('auth:login'))
                 return HttpResponse('ошибка отправки сообщения о регистрации')
     else:
         register_form = ShopUserRegisterForm()

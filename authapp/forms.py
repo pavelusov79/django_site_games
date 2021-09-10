@@ -3,6 +3,7 @@ import random
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, UserCreationForm
+from django.contrib.auth.models import AbstractUser
 
 from .models import ShopUser, ShopUserProfile
 
@@ -35,7 +36,7 @@ class ShopUserRegisterForm(UserCreationForm):
             raise forms.ValidationError("Вы слишком молоды!")
 
         return data
-    
+
     def clean_email(self):
         email = self.cleaned_data['email']
         user = ShopUser.objects.filter(email=email).first()

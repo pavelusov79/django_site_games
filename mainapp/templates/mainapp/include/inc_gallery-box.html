@@ -1,7 +1,6 @@
-<!-- {% load static %} -->
 {% for item in products %}
 <div class="gallery-box">
-	<a href="{% url 'product_page' item.pk %}"><img src="/media/{{ item.image }}" width="271" height="376" alt="game"></a>
+	<a href="{% url 'product_detail' item.pk %}"><img src="/media/{{ item.image }}" width="271" height="376" alt="game"></a>
 	<div class="movie">{{ item.name }}</div>
 	<a href="{% url 'basket:add' item.pk %}"><button title ="купить за ${{ item.price }}">Buy</button></a>
 </div>

@@ -2,7 +2,7 @@ from authapp.forms import ShopUserEditForm
 from authapp.models import ShopUser
 from django import forms
 
-from mainapp.models import ProductCategory, Product, News, Subscribe
+from mainapp.models import ProductCategory, Product, News, Subscribe, ProdPage
 
 
 class ShopUserAdminEditForm(ShopUserEditForm):
@@ -29,13 +29,30 @@ class ProductCategoryEditForm(forms.ModelForm):
 class ProductEditForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ('category',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
+
+
+class ImgProductForm(forms.ModelForm):
+    class Meta:
+        model = ProdPage
+        fields = ['img_1', 'img_2', 'img_3', 'img_4']
+        help_texts = {
+            'img_1': 'поле необязательное',
+            'img_2': 'поле необязательное',
+            'img_3': 'поле необязательное',
+            'img_4': 'поле необязательное'
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
 
 class NewsEditForm(forms.ModelForm):

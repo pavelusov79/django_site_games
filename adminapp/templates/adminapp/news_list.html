@@ -1,0 +1,45 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<a class="btn btn-primary mt-3 mb-5 px-3" role="button" href="{% url 'admin:news_create' %}">новая статья</a>
+	</div>
+		<div class="row justify-content-center">
+		{% for object in page_obj %}
+		<div class="col-8 col-sm-4 col-lg-3 mb-4 {% if not object.is_active %}not_active{% endif %}">
+			<div class="card card-news" style="background: #f4f8fa;">
+				<div class="card-body">
+					<p><span class="date_p">{{object.published|date:"d"}}</span><span
+							class="text_date">{{object.published|date:"F Y"}}</span></p>
+					<h4>{{ object.title }}</h4>
+					<p class="card-text">{{object.short_desc}}</p>
+					<p class="mb-0"><a class="small" href="{% url 'admin:news_read' object.pk %}">
+						подробнее...</a></p>
+					<p class="mb-0"><a class="small" href="{% url 'admin:news_update' object.pk %}">
+						редактировать</a></p>
+					{% if object.is_active %}
+					<p class="mb-0"><a class="small" href="{% url 'admin:news_delete' object.pk %}">
+						удалить</a></p>
+					{% else %}
+					<p class="mb-0"><a class="small" href="{% url 'admin:news_delete' object.pk %}">
+						восстановить</a></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	    {% endfor %}
+	</div>
+</div>
+<div class="pagination">
+	{% if page_obj.has_previous %}
+	<a href="{% url 'admin:news_page' page_obj.previous_page_number %}">&laquo</a>
+	{% endif %}
+	<span>{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+	{% if page_obj.has_next %}
+	<a href="{% url 'admin:news_page' page_obj.next_page_number %}">
+		&raquo</a>
+	{% endif %}
+</div>
+{% endblock %}

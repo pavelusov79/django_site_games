@@ -72,6 +72,7 @@ class News(models.Model):
 class Subscribe(models.Model):
     client_email = models.EmailField(max_length=50, blank=False)
     is_active = models.BooleanField(verbose_name='активна', default=True)
+    checked = models.BooleanField()
 
     def __str__(self):
         return self.client_email

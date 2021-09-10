@@ -1,0 +1,36 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block header %}
+<div class="header-cont"></div>
+{% endblock %}
+    {% block menu %}
+    <div class="menu">
+        {% include 'mainapp/include/inc_menu_gray.html' %}
+        <hr class="gray">
+        <div class="pull"></div>
+    </div>
+    {% endblock %}
+	{% block content %}
+        <h3 class="cont_head text-center">Latest News</h3>
+	<div class="container">
+		<div class="row justify-content-center">
+			{% include 'mainapp/include/inc_block_news.html' %}
+		</div>
+	</div>
+	<div class="container">
+		<div class="row justify-content-center">
+			{% if page_obj.has_previous %}
+			<div class="col-4 col-md-3 gallery-link">
+				<a href="?page={{ page_obj.previous_page_number }}">Show prev news</a>
+			</div>
+			{% endif %}
+			{% if page_obj.has_next %}
+			<div class="col-4 col-md-3 gallery-link">
+				<a href="?page={{ page_obj.next_page_number }}">Show more news</a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+    {% endblock %}
+    {% block contuct_us %}{% endblock %}
+    {% block route %}{% endblock %}

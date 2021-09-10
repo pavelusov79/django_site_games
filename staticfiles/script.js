@@ -72,6 +72,7 @@ window.onload = function() {
 	}
 }
 
+
 $('#sub_form').submit(function() {
     var url = $(this).attr('action');
     var type = $(this).attr('method');

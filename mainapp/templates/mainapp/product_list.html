@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+	{% block header %}
+	<div class="header-cont">
+	{% endblock %}
+		{% block menu %}
+		<div class="menu">
+			{% include 'mainapp/include/inc_menu_gray.html' %}
+			<hr class="gray">
+			<div class="pull"></div>
+		</div>
+		{% endblock %}
+	{% block content %}
+	<div class="gallery">
+		<p class="gallery-head">Our Gallery</p>
+		<div class="gallery-container">
+			{% include 'mainapp/include/inc_gallery-box.html' %}
+		</div>
+		<div class="d-flex justify-content-center">
+			{% if page_obj.has_previous %}
+			<div class="gallery-link mx-3">
+				<a href="?page={{ page_obj.previous_page_number }}">Show prev games</a>
+			</div>
+			{% endif %}
+			{% if page_obj.has_next %}
+			<div class="gallery-link mx-3">
+				<a href="?page={{ page_obj.next_page_number }}">Show more games ></a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="poster">
+		{% for item in disc_products %}
+		<div class="poster_left">
+			<div class="poster-text">
+				<p class="text_1">Discount</p>
+				<a href="{% url 'product_detail' item.pk %}"><p class="text_2">{{ item.name }}</p></a>
+				<p class="text_3">${{ item.disc_price }}<span>/</span><span id="price_1">${{ item.price }}</span></p>
+				<a href="{% url 'basket:add' item.pk %}"><button>Buy</button></a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	</div>
+	{% endblock %}
+	
