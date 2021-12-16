@@ -1,17 +1,6 @@
 {% extends 'ordersapp/base.html' %}
 {% load static %}
 
-{% block header %}
-    <div class="header-cont"></div>
-{% endblock %}
-		{% block menu %}
-		<div class="menu">
-			{% include 'mainapp/include/inc_menu_gray.html' %}
-			<hr class="gray">
-			<div class="pull"></div>
-		</div>
-		{% endblock %}
-
 {% block content %}
 <div class="container mt-5">
     <h2 class="text-center">Ваши заказы, {% if user.first_name %} {{ user.first_name|title}}
@@ -52,7 +41,6 @@
             </button>
         </div>
     </div>
-
 </div>
 
 {% endblock %}

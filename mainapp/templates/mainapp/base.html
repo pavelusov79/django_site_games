@@ -15,49 +15,50 @@
 	{% endblock %}
 </head>
 <body>
-{% block header %}
-{% endblock %}
 
-{% block top_tab %}
-<div class="top_tab">
-	<div class="logo">
-		<a href="{% url 'main' %}">
-			<p class="logo_first">Historical</p>
-			<p class="logo_second">GAMES</p>
+{% block header %}<div class="header-cont">{% endblock header %}
+	<div class="top_tab">
+		<div class="logo">
+			<a href="{% url 'main' %}">
+				<p class="logo_first">Historical</p>
+				<p class="logo_second">GAMES</p>
+			</a>
+		</div>
+		<div class="tel">
+			<a href="#"><img src="{% static 'img/tel.png' %}" alt="tel"></a>
+			<span class="text_tel">+123 456 7890</span>
+			<a href="#"><img src="{% static 'img/email.png' %}" alt="email"></a>
+			<span class="text_email">info@example.com</span>
+		</div>
+		<div class="search">
+			<form action="{% url 'search_results' %}" method="get">
+				<input name="q" type="text" placeholder="Search">
+				<div><button><img src="{% static 'img/search.png' %}" alt="search"></button></div>
+			</form>
+		</div>
+		{% if user.is_authenticated %}
+		<a class= "login_icon" href="{% url 'auth:edit' %}" title= " {{ user.first_name|default:'Пользователь' }} "></a>
+		{% else %}
+		<a class= "login_icon" href="{% url 'auth:login' %}" title= "Вход/регистрация"></a>
+		{% endif %}
+		<a class= "basket" href="{% url 'basket:view' %}" title="
+			{% if basket %}
+				В козине {{ basket.0.total_quantity }} товаров на сумму ${{ basket.0.total_cost }}
+			{% endif %}">
 		</a>
-	</div>
-	<div class="tel">
-		<a href="#"><img src="{% static 'img/tel.png' %}" alt="tel"></a>
-		<span class="text_tel">+123 456 7890</span>
-		<a href="#"><img src="{% static 'img/email.png' %}" alt="email"></a>
-		<span class="text_email">info@example.com</span>
-	</div>
-	<div class="search">
-		<form action="{% url 'search_results' %}" method="get">
-			<input name="q" type="text" placeholder="Search">
-			<div><button><img src="{% static 'img/search.png' %}" alt="search"></button></div>
-		</form>
-	</div>
-	{% if user.is_authenticated %}
-	<a class= "login_icon" href="{% url 'auth:edit' %}" title= " {{ user.first_name|default:'Пользователь' }} "></a>
-	{% else %}
-	<a class= "login_icon" href="{% url 'auth:login' %}" title= "Вход/регистрация"></a>
-	{% endif %}
-	<a class= "basket" href="{% url 'basket:view' %}" title="
+		<span>
 		{% if basket %}
-			В козине {{ basket.0.total_quantity }} товаров на сумму ${{ basket.0.total_cost }}
-		{% endif %}">
-	</a>
-	<span>
-	{% if basket %}
-		${{ basket.0.total_cost }} ({{ basket.0.total_quantity }} шт)
-	{% endif %}
-	</span>
-</div>
-{% endblock %}
-
-{% block menu %}
-{% endblock %}
+			${{ basket.0.total_cost }} ({{ basket.0.total_quantity }} шт)
+		{% endif %}
+		</span>
+	</div>
+	{% block menu %}
+	<div class="menu">
+		{% include 'mainapp/include/inc_menu_gray.html' %}
+		<hr class="gray">
+		<div class="pull"></div>
+	</div>
+	{% endblock menu %}
 </div>
 {% block content %}
 {% endblock %}

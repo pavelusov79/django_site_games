@@ -1,54 +1,44 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-	{% block header %}
-	<div class="header-cont">
-	{% endblock %}
-		{% block menu %}
-		<div class="menu">
-			{% include 'mainapp/include/inc_menu_gray.html' %}
-			<hr class="gray">
-			<div class="pull"></div>
+
+{% block content %}
+<div class="product">
+	<div class="product-box">
+		<div class="product_left">
+			<img class="big" src="/media/{{ disc_img.img_1 }}" alt="product">
+			<div>
+				<img class="select" src="/media/{{ disc_img.img_1 }}" alt="product_1">
+				<img src="/media/{{ disc_img.img_2 }}" alt="product_2">
+				<img src="/media/{{ disc_img.img_3 }}" alt="product_3">
+				<img src="/media/{{ disc_img.img_4 }}" alt="product_4">
+			</div>
+
 		</div>
-		{% endblock %}
-	{% block content %}
-	<div class="product">
-		<div class="product-box">
-			<div class="product_left">
-				<img class="big" src="/media/{{ disc_img.img_1 }}" alt="product">
-				<div>
-					<img class="select" src="/media/{{ disc_img.img_1 }}" alt="product_1">
-					<img src="/media/{{ disc_img.img_2 }}" alt="product_2">
-					<img src="/media/{{ disc_img.img_3 }}" alt="product_3">
-					<img src="/media/{{ disc_img.img_4 }}" alt="product_4">
-				</div>
-				
-			</div>
-			<div class="product_right">
-				<p class="product_text_1"><!-- Assasin’s Creed:<br><space>Rogue</space> -->
-					{{ title_prod.name }}
-				</p>
-				<p class="product_text_2"><!-- $29.99 -->
-					${{ title_prod.disc_price }}
-				</p>
-				<a href="{% url 'basket:add' disc_img.pk %}"><button>Buy</button></a>
-				<!-- <p class="product_text_3">The plot is set in a fictional history of real world events an
-				d follows the centuries-old struggle between the Assassins, who fight for peace with free will, and the Templars, who desire peace through control. The story is set in the mid-18th century during the Seven Years' War, and follows Shay Patrick Cormac, an Assassin-turned-Templar who hunts down former members of his Brotherhood after being betrayed by them. Gameplay in Rogue is very similar to that of Black Flag with a mixture of ship-based naval exploration and third-person land-based exploration with some new features.</p> -->
-				<p class="product_text_3">{{ title_prod.description }}</p>
-			</div>
+		<div class="product_right">
+			<p class="product_text_1"><!-- Assasin’s Creed:<br><space>Rogue</space> -->
+				{{ title_prod.name }}
+			</p>
+			<p class="product_text_2"><!-- $29.99 -->
+				${{ title_prod.disc_price }}
+			</p>
+			<a href="{% url 'basket:add' disc_img.pk %}"><button>Buy</button></a>
+			<!-- <p class="product_text_3">The plot is set in a fictional history of real world events an
+			d follows the centuries-old struggle between the Assassins, who fight for peace with free will, and the Templars, who desire peace through control. The story is set in the mid-18th century during the Seven Years' War, and follows Shay Patrick Cormac, an Assassin-turned-Templar who hunts down former members of his Brotherhood after being betrayed by them. Gameplay in Rogue is very similar to that of Black Flag with a mixture of ship-based naval exploration and third-person land-based exploration with some new features.</p> -->
+			<p class="product_text_3">{{ title_prod.description }}</p>
 		</div>
 	</div>
-	<div class="similar">
-		<p class="gallery-head similar-head">HOT SALES</p>
-		<div class="gallery-container">
-			{% for item in discount_products %}
-			<div class="gallery-box">
-				<a href="{% url 'discount' item.pk %}"><img src="/media/{{item.image}}" width="271" height="376" alt="game"></a>
-				<p class="movie">{{ item.name }}</p>
-				<a href="{% url 'basket:add' item.pk %}"><button>Buy</button></a>
-			</div>
-			{% endfor %}
-		</div>	
+</div>
+<div class="similar">
+	<p class="gallery-head similar-head">HOT SALES</p>
+	<div class="gallery-container">
+		{% for item in discount_products %}
+		<div class="gallery-box">
+			<a href="{% url 'discount' item.pk %}"><img src="/media/{{item.image}}" width="271" height="376" alt="game"></a>
+			<p class="movie">{{ item.name }}</p>
+			<a href="{% url 'basket:add' item.pk %}"><button>Buy</button></a>
+		</div>
+		{% endfor %}
 	</div>
-	</div>
-	{% endblock %}
+</div>
+{% endblock %}
 	

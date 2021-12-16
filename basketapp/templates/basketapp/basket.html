@@ -4,33 +4,23 @@
 	<script src="{% static 'jquery-3.2.1.min.js' %}"></script>
 	<script src="{% static 'basket_script.js' %}" defer></script>
 {% endblock %}
-	{% block header %}
-	<div class="header-cont">
-	{% endblock %}
-		{% block menu %}
-		<div class="menu">
-			{% include 'mainapp/include/inc_menu_gray.html' %}
-			<hr class="gray">
-			<div class="pull"></div>
-		</div>
-		{% endblock %}
+
+{% block content %}
+<div class="basket_container">
+	<div class="h2 text-center head">
+		Ваша корзина, {% if user.first_name %}
+			{{ user.first_name|title }}
+		{% else %}
+			Пользователь
+		{% endif %}
 	</div>
-		{% block content %}
-		<div class="basket_container">
-			<div class="h2 text-center head">
-				Ваша корзина, {% if user.first_name %}
-					{{ user.first_name|title }}
-				{% else %}
-					Пользователь
-				{% endif %}
-			</div>
-		</div>
-		<div class="basket_list">
-        {% include 'basketapp/includes/inc_basket_list.html' %}
-			<a  class="btn btn-danger px-5 mt-5 mb-5" role="button" href="{% url 'order:order_create' %}">Создать заказ</a>
-		</div>
-		{% endblock %}
-		{% block contuct_us %}
-		{% endblock %}
-		{% block route %}
-		{% endblock %}
+</div>
+<div class="basket_list">
+{% include 'basketapp/includes/inc_basket_list.html' %}
+	<a  class="btn btn-danger px-5 mt-5 mb-5" role="button" href="{% url 'order:order_create' %}">Создать заказ</a>
+</div>
+{% endblock %}
+{% block contuct_us %}
+{% endblock %}
+{% block route %}
+{% endblock %}

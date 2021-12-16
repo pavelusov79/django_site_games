@@ -1,32 +1,31 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-{% block header %}
-<div class="header-container">
-{% endblock %}
-{% block menu %}
-<div class="menu">
-    {% include 'mainapp/include/inc_menu_ul.html' %}
-    <hr>
-    <div class="pull"></div>
+
+{% block header %}<div class="header-container">{% endblock header %}
+    {% block menu %}
+    <div class="menu">
+        {% include 'mainapp/include/inc_menu_ul.html' %}
+        <hr>
+        <div class="pull"></div>
+    </div>
+    <p class="h_text">Nunc eget nibh</p>
+    <p class="header_text">Morbi in nisl auctor</p>
+    <div class="header_social">
+        <div>
+            <a href="https://facebook.com"><img src="{% static 'img/facebook-white.png' %}" alt="facebook"></a>
+        </div>
+        <div>
+            <a href="https.twitter.com"><img src="{% static 'img/twitter-white.png' %}" alt="twitter"></a>
+        </div>
+        <div>
+            <a href="https://www.rss.ru"><img src="{% static 'img/rss-white.png' %}" alt="rss"></a>
+        </div>
+        <div>
+            <a href="https://vk.com"><img src="{% static 'img/vk-white.png' %}" alt="vk"></a>
+        </div>
+    </div>
+    {% endblock menu %}
 </div>
-<p class="h_text">Nunc eget nibh</p>
-<p class="header_text">Morbi in nisl auctor</p>
-<div class="header_social">
-    <div>
-        <a href="https://facebook.com"><img src="{% static 'img/facebook-white.png' %}" alt="facebook"></a>
-    </div>
-    <div>
-        <a href="https.twitter.com"><img src="{% static 'img/twitter-white.png' %}" alt="twitter"></a>
-    </div>
-    <div>
-        <a href="https://www.rss.ru"><img src="{% static 'img/rss-white.png' %}" alt="rss"></a>
-    </div>
-    <div>
-        <a href="https://vk.com"><img src="{% static 'img/vk-white.png' %}" alt="vk"></a>
-    </div>
-</div>
-{% endblock %}
-	
 {% block content %}
 <div class="about-container">
     <div class="about">
@@ -242,7 +241,7 @@
         </form>
     </div>
 </div>
-</div>
+
 
 
 {% endblock %}

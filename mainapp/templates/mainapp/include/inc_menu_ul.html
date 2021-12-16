@@ -6,15 +6,8 @@
 	<li><a href="{% url 'news' %}">News</a></li>
 	<li><a href="{% url 'team' %}">Team</a></li>
 	<li><a href="{% url 'contacts' %}">Contact Us</a></li>
-	<!-- {% if user.is_authenticated %}
-        <li>
-            <a href="{% url 'auth:edit' %}">
-                {{ user.first_name|default:'Пользователь' }}
-            </a>
-        </li>
-    {% endif %} -->
+	{% if user.is_authenticated %}
 	<li>
-        {% if user.is_authenticated %}
 		<div class="dropdown">
 			<a class="dropdown-toggle" href="" data-toggle="dropdown">
 				{{ user.first_name|default:'Пользователь' }}
@@ -32,7 +25,11 @@
 				</li>
 			</ul>
 		</div>
-        {% endif %}
 	</li>
-	<li>{% if user.is_superuser %}<a href="{% url 'admin:users' %}">Админка</a>{% endif %}</li>
+	{% endif %}
+	{% if user.is_superuser %}
+	<li>
+		<a href="{% url 'admin:users' %}">Админка</a>
+	</li>
+	{% endif %}
 </ul>
