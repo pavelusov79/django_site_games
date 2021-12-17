@@ -24,7 +24,7 @@
 	</div>
 </div>
 {% if object.quantity < 200 %}
-	<div class="similar">
+	<div class="container-fluid similar">
 		<p class="gallery-head similar-head">Similar-games</p>
 		<div class="gallery-container">
 		{% for item in similar_products %}
@@ -37,7 +37,7 @@
 	</div>
 	</div>
 {% else %}
-	<div class="similar">
+	<div class="container-fluid similar">
 		<p class="gallery-head similar-head">HOT SALES</p>
 		<div class="gallery-container">
 			{% for item in discount_products %}

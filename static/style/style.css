@@ -1168,9 +1168,7 @@ img #social {
 }
 /*Product_page*/
 .similar {
-	width: 100%;/*1920px*/
-	min-height: 436px;
-	margin-top: 7rem;
+	margin-top: 6rem;
 	background-color: #ccc;
 }
 .similar-head {
@@ -1583,11 +1581,6 @@ img #social {
 	}
 }
 
-@media all and (max-width: 740px) {
-	.gallery-container {
-		width: 64%;
-	}
-}
 @media all and (max-width: 870px) {
 	.popup {
 		right:5.7rem;
@@ -1616,9 +1609,8 @@ img #social {
 	.poster_left button {
 		margin-top: 20px;
 	}
-	.route, .contuct_us, .poster, .gallary, .testimonial, .news, 
-	.team {
-		margin-top: 5em;
+	.route, .team, .poster, .gallary, .testimonial, .news {
+		margin-top: 0em;
 	}
 	.header-container {
 		height: 334px;
@@ -1637,9 +1629,7 @@ img #social {
 	hr {
 		display: none;
 	}
-	.gallery {
-   		margin-top: 7em;
-	}
+	
 	.similar {
 		margin-top: 6em;
 	}		
